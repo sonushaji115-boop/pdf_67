@@ -3,12 +3,12 @@ from pathlib import Path
 
 st.set_page_config(page_title="PragyanAI", layout="wide")
 
-# Path to image
-IMAGE_PATH = Path(__file__).parent / "PragyanAI_Transperent.png"
-
 st.title("PragyanAI")
 
-if IMAGE_PATH.exists():
-    st.image(str(IMAGE_PATH), use_container_width=True)
+# Image in the same folder as app.py
+image_path = Path(__file__).parent / "PragyanAI_Transperent.png"
+
+if image_path.is_file():
+    st.image(image_path, use_container_width=True)
 else:
-    st.error(f"Image not found: {IMAGE_PATH}")
+    st.error(f"Image not found: {image_path}")
